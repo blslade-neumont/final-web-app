@@ -1,11 +1,13 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
+import { InspectPipe } from './pipes/inspect.pipe';
+
 //Imports
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
 import { HttpModule } from "@angular/http";
 
-export const module_exports = [];
+export const module_exports = [InspectPipe];
 
 const imported_modules = [ReactiveFormsModule, CommonModule, HttpModule];
 export const exported_modules = [ReactiveFormsModule, CommonModule, HttpModule];

@@ -4,3 +4,10 @@ Artboard list.
     <li><a [routerLink]="['donkey']">Donkey</a></li>
     <li><a [routerLink]="['fish-donkey']">Fish-Donkey</a></li>
 </ul>
+
+<div *ngFor="let art of artboardsObservable | async">
+    <artboard-preview [artboard]="art[1]"></artboard-preview>
+    <div>
+        <span>{{art[0]}}</span>
+    </div>
+</div>
