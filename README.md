@@ -1,6 +1,6 @@
-## angular-seed
+## final-web-app
 
-A simple starter project demonstrating the basic concepts of Angular.
+A project created for the final project in MTM282
 
 
 ### Usage

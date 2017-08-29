@@ -1,7 +1,7 @@
 {
-    "name": "angular-seed",
-    "version": "0.1.0",
-    "description": "A simple starter angular project",
+    "name": "final-web-app",
+    "version": "0.0.0",
+    "description": "A project created for the final project in MTM282",
     "scripts": {
         "lint": "bash ./scripts/lint.sh",
         "build": "bash ./scripts/build.sh",
