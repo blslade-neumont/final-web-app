@@ -1,13 +1,16 @@
-Artboard list.
-<ul>
-    <li><a [routerLink]="['fish']">Fish</a></li>
-    <li><a [routerLink]="['donkey']">Donkey</a></li>
-    <li><a [routerLink]="['fish-donkey']">Fish-Donkey</a></li>
-</ul>
-
-<div *ngFor="let art of artboardsObservable | async">
-    <artboard-preview [artboard]="art[1]"></artboard-preview>
-    <div>
-        <span>{{art[0]}}</span>
+<h1>Artboards</h1>
+<div>
+    <div class="artboard-tile" *ngFor="let art of artboardsObservable | async" [routerLink]="[art[0]]">
+        <artboard-preview [artboard]="art[1]"></artboard-preview>
+        <div class="artboard-tile-title">
+            <span>{{art[0]}}</span>
+        </div>
+    </div>
+    <div class="artboard-tile create-artboard" [routerLink]="['create']">
+        <div class="empty-artboard-preview"></div>
+        <div class="artboard-tile-title">
+            <span>Create Artboard</span>
+        </div>
     </div>
 </div>
+<div class="clearfix"></div>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ArtboardListComponent } from './pages/artboard-list/artboard-list';
 import { ArtboardComponent } from './pages/artboard/artboard';
+import { CreateArtboardComponent } from './pages/create-artboard/create-artboard';
 
 import { ArtboardPreviewComponent } from './components/artboard-preview/artboard-preview';
 
@@ -12,11 +13,12 @@ import { SharedModule } from 'shared/shared.module';
 export const routerConfig: Routes = [
     {path: '', children: [
         {path: '', component: ArtboardListComponent},
+        {path: 'create', component: CreateArtboardComponent},
         {path: ':artboard', component: ArtboardComponent}
     ]}
 ];
 
-const module_exports = [ArtboardListComponent, ArtboardComponent,
+const module_exports = [ArtboardListComponent, ArtboardComponent, CreateArtboardComponent,
                         
                         ArtboardPreviewComponent];
 

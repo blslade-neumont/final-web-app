@@ -6,11 +6,12 @@ import { InspectPipe } from './pipes/inspect.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
 import { HttpModule } from "@angular/http";
+import { FormsModule } from "@angular/forms";
 
 export const module_exports = [InspectPipe];
 
-const imported_modules = [ReactiveFormsModule, CommonModule, HttpModule];
-export const exported_modules = [ReactiveFormsModule, CommonModule, HttpModule];
+const imported_modules = [ReactiveFormsModule, CommonModule, HttpModule, FormsModule];
+export const exported_modules = [ReactiveFormsModule, CommonModule, HttpModule, FormsModule];
 
 @NgModule({
     declarations: [...module_exports],

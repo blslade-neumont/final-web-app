@@ -1,0 +1,13 @@
+<h1>Create Artboard</h1>
+
+<form>
+    <label class="form-control" for="artboard-name">
+        <span class="form-label">Artboard Name</span>
+        <input name="artboard-name" [(ngModel)]="artboardName" />
+    </label>
+    
+    <label class="form-control" for="submit">
+        <span class="form-label">&nbsp;</span>
+        <button name="submit" type="button" [disabled]="!artboardName || isCreating" (click)="createArtboard()">Submit</button>
+    </label>
+</form>
