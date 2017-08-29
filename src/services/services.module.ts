@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
 //Providers
-import { GithubService } from './github.service';
+import { ArtboardService } from './artboard.service';
 
-const module_providers = [GithubService];
+const module_providers = [ArtboardService];
 
 @NgModule({
     providers: [...module_providers]
