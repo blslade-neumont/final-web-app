@@ -9,7 +9,7 @@
     border: 1px solid grey;
     position: relative;
 }
-.artboard-tile:hover .empty-artboard-preview {
+.artboard-tile:hover .empty-artboard-preview, .artboard-tile:hover artboard-preview {
     background: rgb(230, 230, 230);
 }
 .artboard-tile-title {
