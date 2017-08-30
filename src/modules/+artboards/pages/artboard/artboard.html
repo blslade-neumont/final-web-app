@@ -1,7 +1,7 @@
 <ng-container *ngIf="artboardObservable | async as art; else noArtboard">
     <ng-container *ngLet="artboardNameObservable | async as name">
-        <h1>{{name}}</h1>
-        <button type="button" (click)="deleteArtboard(name)">Delete Artboard</button>
+        <h1 class="hot">{{name}}</h1>
+        <button class="btn btn-default" type="button" (click)="deleteArtboard(name)">Delete Artboard</button>
         <pre>{{art | inspect}}</pre>
     </ng-container>
 </ng-container>

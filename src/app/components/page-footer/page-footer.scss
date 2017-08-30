@@ -1,0 +1,11 @@
+@import 'style_tools';
+
+.page-footer--wrapper {
+    color: $text-footer;
+    width: 100%;
+    height: $page-footer-height + $page-section-border-width;
+    line-height: $page-footer-height;
+    background-color: $page-footer-bg;
+    border-top: $page-section-border-width solid $page-footer-border-color;
+    text-align: center;
+}

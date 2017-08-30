@@ -1,0 +1,163 @@
+@import 'style_tools';
+
+// Local Variables
+
+
+
+// Rules
+
+.page-nav--wrapper {
+    display: block;
+    @include clearfix();
+    color: $text-header;
+    a {
+        @include anchorColor($text-header-anchor);
+    }
+}
+
+.page-nav--logo {
+    display: block;
+}
+
+.page-nav--left {
+    float: left;
+    padding: 0 10px;
+}
+.page-nav--right {
+    float: right;
+}
+
+ul.page-nav--links, ul.page-nav--controls {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    list-style: none;
+}
+
+ul.page-nav--links, ul.page-nav--controls {
+    padding: 0 10px; 
+}
+
+li.page-nav--link-item {
+    display: block;
+    line-height: $page-header-height - 4px;
+}
+
+li.page-nav--control-item {
+    line-height: $page-header-height;
+    padding: 0 10px;
+}
+
+a.page-nav--link {
+    display: inline-block;
+    position: relative;
+    padding: 2px 5px 0;
+    border-bottom-width: 2px;
+}
+
+a.page-nav--control {
+    @include anchorColor($text-header-anchor,0.7);
+    border-bottom: none;
+}
+
+.page-nav--large, .page-nav--medium, .page-nav--small {
+    display: none;
+}
+
+.page-nav--modal-header {
+    @include user-select(none);
+    cursor: default;
+    font-size: .8em;
+    margin-bottom: 5px;
+    color: $text-muted;
+    .group {
+        color: $text-header;
+        font-size: 1.25em;
+        margin-left: 5px;
+    }
+}
+
+.page-nav--modal-section {
+    @include user-select(none);
+    padding: 2px 0;
+    @include clearfix;
+    a {
+        display: block;
+        float: left;
+        clear: left;
+    }
+}
+
+.notificationCountLabel {
+    display: inline-block;
+}
+
+@media screen and (min-width: $media-break-lg) {
+    .page-nav--large {
+        display: block;
+    }
+}
+@media screen and (max-width: $media-break-lg - 1px) and (min-width: $media-break-sm) {
+    .page-nav--medium {
+        display: block;
+    }
+}
+@media screen and (max-width: $media-break-sm - 1px) {
+    .page-nav--small {
+        display: block;
+    }
+    
+    .page-nav--menu-bars {
+        float: left;
+        line-height: $page-header-height;
+        padding: 0 2px;
+        margin-left: 8px;
+        margin-right: -2px;
+        cursor: pointer;
+        @include anchorColor();
+    }
+    
+    ul.page-nav--links {
+        display: none;
+    }
+    ul.page-nav--links.page-nav--links-visible {
+        display: flex;
+        flex-direction: column;
+        min-width: 200px;
+        position: fixed;
+        top: $page-header-height;
+        left: 0;
+        bottom: 0;
+        background: $base-color--darker;
+        z-index: 98;
+        padding: 2px 2px 0 0;
+    }
+    
+    a.page-nav--link-item {
+        flex-grow: 1;
+    }
+    a.page-nav--link {
+        display: block;
+        position: relative;
+        padding-top: 0;
+        z-index: 99;
+        padding: 0 20px;
+        border-bottom: none;
+        background-color: withOpacity($base-color--dark, .8);
+        margin-bottom: 2px;
+        transition: background-color .2s;
+        &:hover, &:focus, &:hover:focus {
+            background-color: $base-color--dark;
+        }
+    }
+    div.page-nav--menu-bg {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 98;
+        background: withOpacity($gray--darker,.2);
+    }
+}

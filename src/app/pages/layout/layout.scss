@@ -1,0 +1,9 @@
+@import "style_tools";
+
+main {
+    padding-top: $page-header-height + $page-section-border-width;
+    padding-bottom: 20px;
+    min-height: $page-main-height;
+    background: $page-main-bg;
+    color: $text-main;
+}

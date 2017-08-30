@@ -1,0 +1,19 @@
+
+
+//Static footer
+html {
+    position: relative;
+    min-height: 100vh;
+    * {
+        box-sizing: border-box;
+    }
+}
+body {
+    height: 100%;
+}
+
+pre.code {
+    padding: 5px;
+    background: $code-snippet-bg;
+    border-radius: 3px;
+}

@@ -1,0 +1,23 @@
+
+
+//Button cursor
+button:not(.disabled):not([disabled]) {
+    cursor: pointer;
+}
+
+.btn.btn-outline,.btn.btn-outline-primary {
+    border-color: $text-anchor;
+    @include anchorColor($text-anchor);
+    &:hover {
+        background-color: $base-color--dark;
+    }
+}
+
+a, a:not([href]):not([tabindex]) {
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    @include anchorColor($text-anchor);
+    &:focus, &:hover {
+        text-decoration: none;
+    }
+}

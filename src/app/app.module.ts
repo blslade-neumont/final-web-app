@@ -14,6 +14,7 @@ import { NotFoundComponent } from './pages/not-found/not-found';
 import { PageHeaderComponent } from './components/page-header/page-header';
 import { PageFooterComponent } from './components/page-footer/page-footer';
 import { PageNavComponent } from './components/page-nav/page-nav';
+import { PageLogoComponent } from './components/page-logo/page-logo';
 
 //Imports
 import { routerConfig } from './router-config';
@@ -23,7 +24,7 @@ import { BrowserModule } from "@angular/platform-browser";
 
 const module_exports = [AppComponent, LayoutComponent, HomeComponent, AboutComponent, NotFoundComponent,
                         
-                        PageHeaderComponent, PageFooterComponent, PageNavComponent];
+                        PageHeaderComponent, PageFooterComponent, PageNavComponent, PageLogoComponent];
 
 @NgModule({
     declarations: [...module_exports],

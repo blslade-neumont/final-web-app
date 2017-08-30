@@ -1,0 +1,35 @@
+
+
+@function withOpacity($color,$opacity) {
+    @return rgba(red($color),green($color),blue($color),$opacity);
+}
+
+// Color Pallet
+$base-color--dark: #14395f; // Blue
+// $base-color--dark: #143914; // Green
+// $base-color--dark: #5f1914; // Red
+$base-color--darker: darken($base-color--dark, 10%);
+$base-color--light: lighten(saturate($base-color--dark,100%), 60%);
+$white: #fdfdfd;
+$white-muted: withOpacity($white, .9);
+$white-focus: saturate(darken($base-color--light,10%),100%);
+$gray--darker: #171717;
+$gray--dark: #333;
+$gray: #555;
+$gray--light: #777;
+$gray--lighter: #aaa;
+
+// Layout Colors
+$page-header-bg: $base-color--dark;
+$page-header-border-color: lighten($base-color--dark, 5%);
+$page-main-bg: lighten($base-color--dark, 10%);
+$page-footer-bg: lighten($base-color--dark, 5%);
+$page-footer-border-color: lighten($base-color--dark, 2%);
+
+// Element/Component Colors
+$card-border-color: lighten($base-color--dark, 5%);
+$code-snippet-bg: lighten($gray--lighter, 20%);
+
+// Logo
+$page-logo-primary: $white;
+$page-logo-secondary: $white-focus;

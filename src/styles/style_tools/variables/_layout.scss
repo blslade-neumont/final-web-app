@@ -1,0 +1,10 @@
+
+
+$page-section-border-width: 2px;
+
+$page-header-height: 40px;
+$page-footer-height: 60px;
+$page-main-height: calc(100vh - #{$page-footer-height + $page-section-border-width});
+
+$media-break-lg: 1000px;
+$media-break-sm: 590px;
