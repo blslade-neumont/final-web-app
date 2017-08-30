@@ -1,10 +1,11 @@
-<h3>Home Component</h3>
-<p>Welcome to Angular Seed</p>
-
-<button (click)="startAsyncTask()" [disabled]="runningAsyncTask">
-    <ng-template [ngIf]="runningAsyncTask" [ngIfElse]="notRunning">Working...</ng-template>
-    <ng-template #notRunning>Do Async Task</ng-template>
-</button><br/>
-<p *ngIf="!runningAsyncTask">{{asyncTaskResult}}</p>
-
-<p class="hot">SCSS Support!</p>
+<div class="container">
+    <div class="mt-3">
+        <h1>Welcome to VectorEditor.com</h1>
+    </div>
+    
+    <p class="lead">
+        VectorEditor.com is a free service to create vector graphics.
+        Click <a [routerLink]="['/artboards']">here</a> to get started,
+        or click <a [routerLink]="['/about']">here</a> to learn more.
+    </p>
+</div>

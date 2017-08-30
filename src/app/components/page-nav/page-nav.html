@@ -1,13 +1,15 @@
 <nav class="page-nav--wrapper">
-    <div class="page-nav--menu-bars page-nav--small" (click)="showNavLinks = !showNavLinks"><i class="fa fa-bars"></i></div>
-    <page-logo class="page-nav--logo page-nav--left"></page-logo>
-    <ul class="page-nav--links page-nav--left" (click)="showNavLinks = false" [class.page-nav--links-visible]="showNavLinks">
-        <div *ngIf="showNavLinks" class="page-nav--menu-bg page-nav--small"></div>
-        <li class="page-nav--link-item" [routerLinkActive]="['active']">
-            <a class="page-nav--link" [routerLink]="['/about']">About</a>
-        </li>
-        <li class="page-nav--link-item" [routerLinkActive]="['active']">
-            <a class="page-nav--link" [routerLink]="['/artboards']">Artboards</a>
-        </li>
-    </ul>
+    <div class="container">
+        <div class="page-nav--menu-bars page-nav--small" (click)="showNavLinks = !showNavLinks"><i class="fa fa-bars"></i></div>
+        <page-logo class="page-nav--logo page-nav--left"></page-logo>
+        <ul class="page-nav--links page-nav--left" (click)="showNavLinks = false" [class.page-nav--links-visible]="showNavLinks">
+            <div *ngIf="showNavLinks" class="page-nav--menu-bg page-nav--small"></div>
+            <li class="page-nav--link-item" [routerLinkActive]="['active']">
+                <a class="page-nav--link" [routerLink]="['/about']">About</a>
+            </li>
+            <li class="page-nav--link-item" [routerLinkActive]="['active']">
+                <a class="page-nav--link" [routerLink]="['/artboards']">Artboards</a>
+            </li>
+        </ul>
+    </div>
 </nav>
