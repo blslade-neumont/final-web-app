@@ -62,6 +62,9 @@
                                   dnd-sortable
                                   [sortableIndex]="i">
                                     {{path.name}}
+                                    <button class="btn btn-sm btn-danger pull-right" style="margin-bottom: -.3em; margin-top: -.3em; margin-right: -.8em;" (click)="removePathAt(i)">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
                                 </li>
                             </ul>
                             <div *ngIf="!paths.length">
@@ -90,7 +93,6 @@
                         />
                     </svg>
                 </div>
-                <pre>{{currentPath | inspect}}</pre>
             </div>
         </div>
     </ng-container>

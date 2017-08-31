@@ -95,6 +95,13 @@ export class ArtboardComponent extends RoutedComponent {
         this._color = path.color;
         this.currentTool = 0;
     }
+    removePathAt(idx: number) {
+        let path = this.paths[idx];
+        if (!path) return;
+        this.paths.splice(idx, 1);
+        if (this.currentPath === path) this.currentPath = null;
+        this.currentTool = 0;
+    }
     
     ngOnInit() {
         super.ngOnInit();
