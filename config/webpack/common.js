@@ -1,21 +1,23 @@
 var path = require('path');
 
+const FRONTEND_ROOT = path.resolve(__dirname, '../../');
+
 // Our Webpack Defaults
 var defaultConfig = {
     devtool: 'cheap-module-source-map',
     cache: true,
     
     output: {
-        filename: '[name].bundle.js',
-        sourceMapFilename: '[name].map',
-        chunkFilename: '[id].chunk.js'
+        filename: '[name]-[hash:6].js',
+        sourceMapFilename: '[name]-[hash:6].map',
+        chunkFilename: '[id]-[hash:6].chunk.js'
     },
     
     resolve: {
         modules: [
-            path.join(__dirname, '../../node_modules'),
-            path.join(__dirname, '../../src'),
-            path.join(__dirname, '../../public/assets')
+            path.join(FRONTEND_ROOT, 'node_modules'),
+            path.join(FRONTEND_ROOT, 'src'),
+            path.join(FRONTEND_ROOT, 'public/assets')
         ],
         extensions: ['.ts', '.js']
     },
