@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { ArtboardService, ArtboardT } from 'services';
 import { RoutedComponent } from 'utils/components';
+import { ObservableInput } from 'utils/observable-input';
 
 @Component({
     templateUrl: './artboard.html',
@@ -20,7 +21,11 @@ export class ArtboardComponent extends RoutedComponent {
     }
     
     artboardNameObservable: Observable<string>;
+    
+    @ObservableInput() artboard: ArtboardT | null;
     artboardObservable: Observable<ArtboardT | null>;
+    
+    color: string = '#FF0000';
     
     ngOnInit() {
         super.ngOnInit();
@@ -31,5 +36,9 @@ export class ArtboardComponent extends RoutedComponent {
     async deleteArtboard(name: string) {
         await this.artboardService.delete(name);
         this.router.navigate(['/artboards']);
+    }
+    async saveArtboard(name: string) {
+        if (!this.artboard) return;
+        this.artboardService.put(name, this.artboard);
     }
 }
