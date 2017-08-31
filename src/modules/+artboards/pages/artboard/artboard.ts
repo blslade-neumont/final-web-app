@@ -1,6 +1,7 @@
 import { Component, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { ArtboardService, ArtboardT } from 'services';
@@ -98,7 +99,16 @@ export class ArtboardComponent extends RoutedComponent {
     ngOnInit() {
         super.ngOnInit();
         this.artboardNameObservable = this.route.paramMap.map(map => map.get('artboard'));
-        this.artboardObservable = this.artboardNameObservable.switchMap(name => this.artboardService.get(name));
+        this.artboardObservable = this.artboardNameObservable
+          .switchMap(name => this.artboardService.get(name))
+          .do(artboard => {
+              if (!artboard) return;
+              this.currentPath = null;
+              this.isEditing = false;
+              this.currentTool = 0;
+              this.paths = artboard.paths || [];
+              this.nextPathIdx = artboard.nextPathIdx || (this.paths.length + 1);
+          });
     }
     
     async deleteArtboard(name: string) {
@@ -107,6 +117,11 @@ export class ArtboardComponent extends RoutedComponent {
     }
     async saveArtboard(name: string) {
         if (!this.artboard) return;
+        this.artboard = {
+            paths: this.paths,
+            nextPathIdx: this.nextPathIdx
+        };
         this.artboardService.put(name, this.artboard);
+        this.router.navigate(['/artboards']);
     }
 }

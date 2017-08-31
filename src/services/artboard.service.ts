@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 
 export type ArtboardT = {
-    
+    paths?: {
+        d: string,
+        color: string,
+        name: string
+    }[],
+    nextPathIdx?: number
 }
 
 @Injectable()
