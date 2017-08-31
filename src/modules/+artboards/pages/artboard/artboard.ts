@@ -43,6 +43,7 @@ export class ArtboardComponent extends RoutedComponent {
     set currentTool(val: number) {
         if (this._currentTool === val) return;
         this._currentTool = val;
+        if (this.currentPath && !this.currentPath.d.endsWith('Z')) this.currentPath.d += 'Z';
         this.isEditing = false;
     }
     currentPath: any = null;
@@ -67,6 +68,7 @@ export class ArtboardComponent extends RoutedComponent {
                 this.isEditing = true;
             }
             else {
+                if (this.currentPath.d.endsWith('Z')) this.currentPath.d = this.currentPath.d.substr(0, this.currentPath.d.length - 1);
                 this.currentPath.d += `L${px},${py}`;
             }
             break;
@@ -81,12 +83,16 @@ export class ArtboardComponent extends RoutedComponent {
             //Pointer
             evt.preventDefault();
             evt.stopPropagation();
-            this.currentPath = path;
-            this._color = path.color;
+            this.selectPath(path);
             break;
         case 1:
             break;
         }
+    }
+    selectPath(path: any) {
+        this.currentPath = path;
+        this._color = path.color;
+        this.currentTool = 0;
     }
     
     ngOnInit() {

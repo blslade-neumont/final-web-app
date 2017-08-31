@@ -54,7 +54,15 @@
                                 Layers
                             </h4>
                             <ul class="list-group" dnd-sortable-container [sortableData]="paths">
-                                <li *ngFor="let path of paths; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">{{path.name}}</li>
+                                <li
+                                  *ngFor="let path of paths; let i = index"
+                                  class="list-group-item"
+                                  [class.selected]="path === currentPath"
+                                  (click)="selectPath(path)"
+                                  dnd-sortable
+                                  [sortableIndex]="i">
+                                    {{path.name}}
+                                </li>
                             </ul>
                             <div *ngIf="!paths.length">
                                 You have no layers.
@@ -76,8 +84,8 @@
                           *ngFor="let path of paths"
                           [attr.d]="path.d"
                           [style.fill]="path.color"
-                          [style.outline]="'black'"
-                          [style.outline-width]="(currentPath === path) ? 5 : 0"
+                          [style.stroke]="'black'"
+                          [style.stroke-width]="(currentPath === path) ? 5 : 0"
                           (click)="pathClicked(path, $event)"
                         />
                     </svg>
