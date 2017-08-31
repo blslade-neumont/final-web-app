@@ -47,12 +47,11 @@ export class ArtboardComponent extends RoutedComponent {
     }
     currentPath: any = null;
     isEditing = false;
-    paths = [
-        { d: 'M100,10L40,198L190,78L10,78L160,198', color: 'red' }
-    ];
+    paths: any[] = [];
+    nextPathIdx = 1;
     
-    svgClicked(evt: MouseEvent) {
-        let [px, py] = [evt.offsetX, evt.offsetY];
+    svgClicked(svg: SVGElement, evt: MouseEvent) {
+        let [px, py] = [(evt.offsetX / svg.clientWidth) * 600, (evt.offsetY / svg.clientHeight) * 400];
         switch (this.currentTool) {
         case 0:
             //Pointer
@@ -63,7 +62,7 @@ export class ArtboardComponent extends RoutedComponent {
         case 1:
             //Pen
             if (!this.currentPath || !this.isEditing) {
-                this.currentPath = { d: `${px},${py}`, color: this.color };
+                this.currentPath = { d: `M${px},${py}`, color: this.color, name: `Layer ${this.nextPathIdx++}` };
                 this.paths.push(this.currentPath);
                 this.isEditing = true;
             }
