@@ -7,17 +7,17 @@
         Select an artboard to edit, or <a [routerLink]="create">create a new one</a>.
     </p>
     
-    <div>
-        <div class="artboard-tile" *ngFor="let art of artboardsObservable | async" [routerLink]="[art[0]]">
-            <artboard-preview [artboard]="art[1]"></artboard-preview>
-            <div class="artboard-tile-title">
-                <span>{{art[0]}}</span>
+    <div class="clearfix">
+        <div class="card artboard-tile" *ngFor="let art of artboardsObservable | async" [routerLink]="[art[0]]">
+            <div artboard-preview class="card-img-top" [artboard]="art[1]"></div>
+            <div class="card-body">
+                <p class="card-text">{{art[0]}}</p>
             </div>
         </div>
-        <div class="artboard-tile create-artboard" [routerLink]="['create']">
-            <div class="empty-artboard-preview"></div>
-            <div class="artboard-tile-title">
-                <span>Create Artboard</span>
+        <div class="card artboard-tile create-artboard" [routerLink]="['create']">
+            <div class="card-img-top empty-artboard-preview"></div>
+            <div class="card-body">
+                <p class="card-text">Create Artboard</p>
             </div>
         </div>
     </div>

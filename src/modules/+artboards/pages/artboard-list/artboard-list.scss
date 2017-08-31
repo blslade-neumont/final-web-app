@@ -1,49 +1,32 @@
 
 
 .artboard-tile {
-    cursor: pointer;
-    width: 300px;
-    height: 200px;
+    width: calc(33.3% - 16px);
     float: left;
-    margin: 16px;
-    border: 1px solid grey;
-    position: relative;
+    margin-left: 16px;
+    margin-top: 16px;
 }
-.artboard-tile:hover .empty-artboard-preview, .artboard-tile:hover artboard-preview {
-    background: rgb(230, 230, 230);
-}
-.artboard-tile-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.artboard-tile:nth-child(3n + 1) {
+    margin-left: 0;
 }
 
-.empty-artboard-preview {
-    position: absolute;
-    left: 4px;
-    right: 4px;
-    top: 4px;
-    bottom: 22px;
-    border: 1px solid rgb(230, 230, 230);
+.artboard-tile {
+    cursor: pointer;
+}
+.artboard-tile:hover .card-text {
+    text-decoration: underline;
+}
+
+.artboard-tile:hover .empty-artboard-preview:before {
+    color: white;
 }
 .empty-artboard-preview:before {
     content: '+';
-    line-height: 174px;
+    line-height: 200px;
     text-align: center;
     vertical-align: middle;
     display: inline-block;
     width: 100%;
     font-size: 200px;
     color: grey;
-}
-
-.create-artboard .artboard-tile-title {
-    text-align: center;
-}
-
-.clearfix:after {
-    content: '';
-    display: block;
-    clear: both;
 }

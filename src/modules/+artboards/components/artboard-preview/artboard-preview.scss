@@ -1,10 +1,8 @@
 
 
-:host {
-    position: absolute;
-    left: 4px;
-    right: 4px;
-    top: 4px;
-    bottom: 22px;
-    border: 1px solid rgb(230, 230, 230);
+.preview {
+    background: white;
+    border: 1px solid slategray;
+    color: black;
+    height: 200px;
 }
