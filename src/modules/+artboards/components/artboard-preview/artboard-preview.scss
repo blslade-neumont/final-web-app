@@ -1,8 +1,10 @@
 
 
-.preview {
+.artboard-preview {
     background: white;
     border: 1px solid slategray;
     color: black;
-    height: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
 }

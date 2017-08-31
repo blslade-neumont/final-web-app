@@ -1,4 +1,12 @@
-<div class="preview">
-    Artboard Preview
-    <pre>{{artboard | inspect}}</pre>
-</div>
+<svg
+  class="artboard-preview"
+  width="600"
+  height="400"
+  viewBox="0 0 600 400"
+  preserveAspectRatio="none">
+    <svg:path
+      *ngFor="let path of (artboard.paths || [])"
+      [attr.d]="path.d"
+      [style.fill]="path.color"
+    />
+</svg>
