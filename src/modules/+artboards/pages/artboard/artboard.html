@@ -29,7 +29,14 @@
                                 <i class="fa fa-wrench mr-2"></i>
                                 Tools
                             </h4>
-                            
+                            <div class="btn-group" ngbRadioGroup name="currentTool" [(ngModel)]="currentTool">
+                                <label ngbButtonLabel class="btn-primary" (click)="currentTool = 0"> <!-- HACK! -->
+                                    <input ngbButton type="radio" [value]="0" /><i class="fa fa-mouse-pointer"></i>
+                                </label>
+                                <label ngbButtonLabel class="btn-primary" (click)="currentTool = 1">
+                                    <input ngbButton type="radio" [value]="1" /><i class="fa fa-pencil"></i>
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div class="card mt-3">
@@ -51,8 +58,26 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="artboard-editor"></div>
+                    <svg
+                      class="artboard-editor"
+                      width="600"
+                      height="400"
+                      viewBox="0 0 600 400"
+                      preserveAspectRatio="none"
+                      #svg
+                      (mousemove)="svgMouseMoved(svg)"
+                      (click)="svgClicked($event)">
+                        <svg:path
+                          *ngFor="let path of paths"
+                          [attr.d]="path.d"
+                          [style.fill]="path.color"
+                          [style.outline]="'black'"
+                          [style.outline-width]="(currentPath === path) ? 5 : 0"
+                          (click)="pathClicked(path, $event)"
+                        />
+                    </svg>
                 </div>
+                <pre>{{currentPath | inspect}}</pre>
             </div>
         </div>
     </ng-container>

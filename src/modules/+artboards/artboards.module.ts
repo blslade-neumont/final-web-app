@@ -10,6 +10,7 @@ import { ArtboardPreviewComponent } from './components/artboard-preview/artboard
 //Imports
 import { SharedModule } from 'shared/shared.module';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { NgbButtonsModule } from '@ng-bootstrap/ng-bootstrap';
 
 export const routerConfig: Routes = [
     {path: '', children: [
@@ -25,8 +26,8 @@ const module_exports = [ArtboardListComponent, ArtboardComponent, CreateArtboard
 
 @NgModule({
     declarations: [...module_exports],
-    imports:      [RouterModule.forChild(routerConfig), SharedModule.forRoot(), ColorPickerModule],
-    exports:      [...module_exports, ColorPickerModule]
+    imports:      [RouterModule.forChild(routerConfig), SharedModule.forRoot(), ColorPickerModule, NgbButtonsModule.forRoot()],
+    exports:      [...module_exports, ColorPickerModule, NgbButtonsModule]
 })
 export class ArtboardsModule {
 }

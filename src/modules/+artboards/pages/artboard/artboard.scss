@@ -2,7 +2,8 @@
 
 .artboard-editor {
     background: white;
-    height: 500px;
+    height: auto;
+    width: 100%;
 }
 
 .color-picker {
@@ -15,4 +16,8 @@
 .color-picker-lg {
     width: 40px;
     height: 40px;
+}
+
+path {
+    pointer-events: visibleFill;
 }
