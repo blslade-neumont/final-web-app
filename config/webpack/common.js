@@ -2,10 +2,15 @@ var path = require('path');
 
 const FRONTEND_ROOT = path.resolve(__dirname, '../../');
 
+var stats = {
+    warningsFilter: /System.import/
+};
+
 // Our Webpack Defaults
 var defaultConfig = {
     devtool: 'cheap-module-source-map',
     cache: true,
+    mode: 'development',
     
     output: {
         filename: '[name]-[hash:6].js',
@@ -32,6 +37,11 @@ var defaultConfig = {
         Buffer: false,
         clearImmediate: false,
         setImmediate: false
+    },
+    
+    stats,
+    devServer: {
+        stats
     }
 };
 module.exports = defaultConfig;
