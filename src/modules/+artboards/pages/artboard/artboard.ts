@@ -105,7 +105,7 @@ export class ArtboardComponent extends RoutedComponent {
     
     ngOnInit() {
         super.ngOnInit();
-        this.artboardNameObservable = this.route.paramMap.map(map => map.get('artboard'));
+        this.artboardNameObservable = this.route.paramMap.map(map => map.get('artboard')!);
         this.artboardObservable = this.artboardNameObservable
           .switchMap(name => this.artboardService.get(name))
           .do(artboard => {
