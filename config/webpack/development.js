@@ -50,8 +50,7 @@ let $angularRouter = {
 
 let devConfig = {
     entry: {
-        'main':   './src/main.browser.ts',
-        'import': './src/styles/styles.scss'
+        'main':   './src/main.browser.ts'
     },
     
     output: {
@@ -72,12 +71,12 @@ let devConfig = {
     module: {
         rules: [
             { test: /\.ts$/, loaders: [$awesomeTypescript, $angular2Template, $angularRouter], exclude: /\.spec\.ts$/ },
-            { test: /\.css$/, loaders: [$toString, $css] },
+            { test: /\.css$/, loaders: [$toString, $trim, $css] },
             { test: /\.md$/, loaders: [$raw] },
             { test: /\.html$/, loaders: [$trim] },
             { test: /\.pug$/, loaders: [$pug] },
-            { test: /\.scss$/, loaders: [$style, $trim, $sass], exclude: /src\/(app|modules|shared)\/./ },
-            { test: /src\/(app|modules|shared)\/.+\.scss$/, loaders: [$toString, $trim, $sass] }
+            { test: /\.scss$/, loaders: [$style, $trim, $sass], exclude: /src[\/\\](app|modules|shared)[\/\\]/ },
+            { test: /src[\/\\](app|modules|shared)[\/\\].+\.scss$/, loaders: [$toString, $trim, $sass] }
         ]
     },
     
